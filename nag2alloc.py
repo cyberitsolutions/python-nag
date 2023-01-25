@@ -25,6 +25,7 @@ def add_timesheet_item(start_time: datetime.datetime, length: datetime.timedelta
     if not length:
         # NOTE: alloc-work does this check AIUI, so maybe just rely on that.
         #       However that would mean not crashing at the first hint of trouble from alloc-cli
+        #       (assuming it actually exits non-zero anyway)
         print("# ERROR: Asked to add zero-length item", file=sys.stderr)
         print('#       ', shlex.join(cmd), file=sys.stderr)
     print(shlex.join(cmd))
